@@ -53,7 +53,14 @@
   <section class="demo" id="demo">
     <div class="section-head">
       <h2>Try it right here</h2>
-      <p>This demo runs the same code as the extension. Click into the message, hover over an underline, or click Inky in the corner.</p>
+      <p>This demo runs the same code as the extension. Click into the message, hover over an underline, or select a sentence to rewrite it with Claude.</p>
+    </div>
+    <div class="demo-bar">
+      <div class="seg" role="radiogroup" aria-label="Checker">
+        <button role="radio" aria-checked="true" data-engine="languagetool">Free checker</button>
+        <button role="radio" aria-checked="false" data-engine="ai">✨ Claude</button>
+      </div>
+      <button class="reset" id="resetDemo" type="button">↺ Reset text</button>
     </div>
     <div class="window">
       <div class="bar"><i></i><i></i><i></i><span>New message</span></div>

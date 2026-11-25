@@ -8,7 +8,7 @@
 [![Manifest V3](https://img.shields.io/badge/manifest-v3-8f7bff?style=flat-square&logo=googlechrome&logoColor=white)](manifest.json)
 [![Works in](https://img.shields.io/badge/works%20in-Chrome%20·%20Edge%20·%20Brave%20·%20Arc-1a1730?style=flat-square)](#-install)
 [![No tracking](https://img.shields.io/badge/tracking-none-12b76a?style=flat-square)](#-privacy)
-[![Zero dependencies](https://img.shields.io/badge/dependencies-0-f59f0b?style=flat-square)](#-project-structure)
+[![Zero dependencies](https://img.shields.io/badge/extension%20dependencies-0-f59f0b?style=flat-square)](#-project-structure)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-f04461?style=flat-square)](#-contributing)
 
 **A browser extension that checks your spelling and grammar as you type, on almost any website.**<br />
@@ -246,10 +246,11 @@ inkling/
 ├── playground/            # Try-it page that opens after install
 ├── ui/                    # Shared styles and the Inky SVG
 ├── icons/
-└── site/                  # Landing page with a live demo (deployed on Vercel)
+├── site/                  # Landing page with a live demo (deployed on Vercel)
+└── api/ai.js              # Serverless function behind the site's Claude demo
 ```
 
-There's no build step and no `node_modules`. After you edit a file, reload the extension on `chrome://extensions` and refresh the page.
+The extension has no build step and no dependencies. After you edit a file, reload it on `chrome://extensions` and refresh the page. The `package.json` is only used by the website's demo function.
 
 <br />
 
