@@ -1,4 +1,5 @@
 import { DEFAULTS, checkWithLanguageTool, checkWithAI, rewrite, callAI } from './engines.js';
+import { checkBasic, mergeIssues } from './basic.js';
 
 async function getSettings() {
   const stored = await chrome.storage.sync.get(DEFAULTS);
@@ -23,8 +24,15 @@ const handlers = {
     const settings = await getSettings();
     const keys = await getKeys();
     const useAI = settings.checkEngine === 'ai' && (settings.aiProvider === 'openai' ? keys.openaiKey : keys.anthropicKey);
-    const issues = useAI ? await checkWithAI(text, settings, keys) : await checkWithLanguageTool(text, settings.language);
-    return { issues, engine: useAI ? 'ai' : 'languagetool' };
+    const basic = checkBasic(text);
+    try {
+      const main = useAI ? await checkWithAI(text, settings, keys) : await checkWithLanguageTool(text, settings.language);
+      return { issues: mergeIssues(main, basic), engine: useAI ? 'ai' : 'languagetool' };
+    } catch (err) {
+      // Offline, rate-limited or a bad key: the built-in checker still works.
+      if (useAI) throw err;
+      return { issues: basic, engine: 'basic' };
+    }
   },
   async rewrite({ text, mode }) {
     const settings = await getSettings();

@@ -1,9 +1,0 @@
-{
-  "name": "inkling",
-  "private": true,
-  "type": "module",
-  "description": "Inkling browser extension and website. The extension itself has no dependencies; the SDK is only used by the website's /api/ai demo function.",
-  "dependencies": {
-    "@anthropic-ai/sdk": "^1.14.0"
-  }
-}

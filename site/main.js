@@ -2,6 +2,7 @@
 // extension content script with a tiny stand-in for the chrome.* APIs.
 import { inky } from './lib/inky.js';
 import { DEFAULTS, checkWithLanguageTool } from './lib/engines.js';
+import { checkBasic, mergeIssues } from './lib/basic.js';
 
 document.getElementById('logoInky').innerHTML = inky('happy', 28);
 document.getElementById('heroInky').innerHTML = inky('happy', 260);
@@ -16,29 +17,20 @@ for (const b of document.querySelectorAll('[data-copy]')) {
   });
 }
 
-// Which checker the demo uses: the free LanguageTool API, or Claude through /api/ai.
-let engine = 'languagetool';
-const storageListeners = [];
-
-async function askClaude(mode, text) {
-  const res = await fetch('/api/ai', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ mode, text }),
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
-  return data;
-}
-
 // Minimal chrome.* stand-in so src/content.js runs unchanged on a web page.
+// Checks use the free LanguageTool API plus Inkling's built-in word list,
+// which keeps working if LanguageTool is busy or unreachable.
 const handlers = {
   async check({ text }) {
-    if (engine === 'ai') return { issues: (await askClaude('check', text)).issues, engine };
-    return { issues: await checkWithLanguageTool(text, 'en-US'), engine };
+    const basic = checkBasic(text);
+    try {
+      return { issues: mergeIssues(await checkWithLanguageTool(text, 'en-US'), basic) };
+    } catch {
+      return { issues: basic };
+    }
   },
-  async rewrite({ text, mode }) {
-    return { text: (await askClaude(mode, text)).text };
+  async rewrite() {
+    throw new Error('AI rewrites work in the extension with your own Claude or OpenAI key.');
   },
   async fixed() { return {}; },
   async openOptions() {
@@ -56,22 +48,13 @@ window.chrome = {
     },
   },
   storage: {
-    sync: { get: async (d) => ({ ...DEFAULTS, ...d, checkEngine: engine }), set: async () => {} },
-    // A placeholder "key" switches on the rewrite toolbar; the real key lives on the server.
-    local: { get: async (d) => ({ ...d, anthropicKey: 'website-demo' }), set: async () => {} },
-    onChanged: { addListener: (fn) => storageListeners.push(fn) },
+    sync: { get: async (d) => ({ ...DEFAULTS, ...d }), set: async () => {} },
+    local: { get: async (d) => ({ ...d }), set: async () => {} },
+    onChanged: { addListener() {} },
   },
 };
 
 const demoDefault = document.getElementById('demoText').value;
-for (const b of document.querySelectorAll('[data-engine]')) {
-  b.addEventListener('click', () => {
-    engine = b.dataset.engine;
-    document.querySelectorAll('[data-engine]').forEach((x) => x.setAttribute('aria-checked', String(x === b)));
-    storageListeners.forEach((fn) => fn({ checkEngine: { newValue: engine } }, 'sync'));
-    document.getElementById('demoText').focus();
-  });
-}
 document.getElementById('resetDemo').addEventListener('click', () => {
   const t = document.getElementById('demoText');
   t.focus();
