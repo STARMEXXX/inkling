@@ -14,6 +14,8 @@
 **Fix spelling, grammar and tone as you type — on any website.**<br />
 Free. Private. No account. Bring your own AI for one-click rewrites.
 
+### [🌐 Try the live demo →](https://inkling-writer.vercel.app)
+
 [Install](#-install-in-60-seconds) · [Features](#-features) · [How it works](#-how-it-works) · [Privacy](#-privacy) · [FAQ](#-faq)
 
 <br />
@@ -243,7 +245,8 @@ inkling/
 ├── options/               # Settings page
 ├── playground/            # Try-it page that opens after install
 ├── ui/                    # Shared styles and the Inky SVG
-└── icons/
+├── icons/
+└── site/                  # Landing page with a live demo (deployed on Vercel)
 ```
 
 No build step, no `node_modules`. Edit a file, hit reload on `chrome://extensions`, done.

@@ -6,6 +6,8 @@
 (() => {
   if (window.__inklingLoaded) return;
   window.__inklingLoaded = true;
+  // The website runs its own copy of this script as a live demo; don't double up on it.
+  if (document.documentElement.hasAttribute('data-inkling-demo') && globalThis.chrome?.runtime?.id) return;
 
   /* ================================================================ */
   /* Settings                                                          */

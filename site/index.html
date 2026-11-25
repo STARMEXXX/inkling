@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-inkling-demo>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inkling — the open-source writing assistant</title>
+  <meta name="description" content="Fix spelling, grammar and tone as you type on any website. Free, private, open source. No account." />
+  <meta property="og:title" content="Inkling — the open-source writing assistant" />
+  <meta property="og:description" content="Fix spelling, grammar and tone as you type. Free, private, no account." />
+  <meta property="og:image" content="https://inkling-writer.vercel.app/lib/banner.png" />
+  <meta property="og:url" content="https://inkling-writer.vercel.app" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/lib/icon-128.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="#top"><span id="logoInky"></span>Inkling</a>
+    <div class="links">
+      <a href="#demo">Demo</a>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a class="gh" href="https://github.com/STARMEXXX/inkling" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-text">
+      <div class="eyebrow"><span class="pulse"></span>Free &amp; open source</div>
+      <h1>Write like you<br /><span class="grad">mean it.</span></h1>
+      <p class="lead">Inkling fixes spelling, grammar and tone as you type — on any website. No account, no subscription, no server reading your words.</p>
+      <div class="ctas">
+        <a class="btn primary" href="https://github.com/STARMEXXX/inkling/archive/refs/heads/main.zip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+          Download for Chrome
+        </a>
+        <a class="btn" href="#demo">Try it live ↓</a>
+      </div>
+      <div class="works">Works in Chrome, Edge, Brave and Arc</div>
+    </div>
+    <div class="hero-art">
+      <div class="blob"></div>
+      <div class="big-inky" id="heroInky"></div>
+      <div class="float f1"><span class="dot" style="background:var(--spelling)"></span><s>recieved</s> → <b>received</b></div>
+      <div class="float f2"><span class="dot" style="background:var(--grammar)"></span><s>were</s> → <b>was</b></div>
+      <div class="float f3"><span class="dot" style="background:var(--style)"></span>✨ Make it friendlier</div>
+    </div>
+  </header>
+
+  <section class="demo" id="demo">
+    <div class="section-head">
+      <h2>Try it right here</h2>
+      <p>This is the real extension code, running in your browser. Click the text, hover an underline, or click Inky in the corner.</p>
+    </div>
+    <div class="window">
+      <div class="bar"><i></i><i></i><i></i><span>New message</span></div>
+      <div class="mail-row"><span>To</span>sarah@company.com</div>
+      <div class="mail-row"><span>Subject</span>Quick follow-up</div>
+      <textarea id="demoText" spellcheck="false" aria-label="Demo text">Hi Sarah,
+
+I wanted to follow up on are meeting yesterday. Could you send me the the slides when you get a chance? I recieved your email but the attachment were missing.
+
+Its a really exciting project and i cant wait to get started. Thanks alot!</textarea>
+    </div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--spelling)"></i>Spelling</span>
+      <span><i class="dot" style="background:var(--grammar)"></i>Grammar</span>
+      <span><i class="dot" style="background:var(--punctuation)"></i>Punctuation</span>
+      <span><i class="dot" style="background:var(--style)"></i>Clarity</span>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="section-head">
+      <h2>Everything you need. Nothing you don’t.</h2>
+      <p>The essentials of a premium writing assistant, in about 100 KB of readable code.</p>
+    </div>
+    <div class="grid">
+      <div class="feat"><div class="ico">🖍️</div><h3>Fixes as you type</h3><p>Color-coded underlines for spelling, grammar, punctuation and clarity. One click to fix.</p></div>
+      <div class="feat"><div class="ico">💧</div><h3>Inky has your back</h3><p>A tiny mascot in the corner of every field. Click it to see everything — and fix it all at once.</p></div>
+      <div class="feat"><div class="ico">✍️</div><h3>AI rewrites</h3><p>Select text and make it clearer, shorter, more formal, friendlier or more confident.</p></div>
+      <div class="feat"><div class="ico">🔒</div><h3>Private by design</h3><p>No account, no analytics, no Inkling server. Your keys stay on your device.</p></div>
+      <div class="feat"><div class="ico">🌍</div><h3>Works everywhere</h3><p>Text areas, inputs and rich editors like Gmail, Notion and LinkedIn.</p></div>
+      <div class="feat"><div class="ico">🆓</div><h3>Free forever</h3><p>Grammar checks are free. For AI, bring your own Claude or OpenAI key and pay cents.</p></div>
+    </div>
+
+    <div class="shots">
+      <figure><img src="/lib/card.png" alt="Suggestion card" loading="lazy" /><figcaption>Hover any underline</figcaption></figure>
+      <figure><img src="/lib/rewrite.png" alt="AI rewrite toolbar" loading="lazy" /><figcaption>Select text to rewrite</figcaption></figure>
+      <figure><img src="/lib/panel.png" alt="Inky panel" loading="lazy" /><figcaption>Fix everything at once</figcaption></figure>
+      <figure><img src="/lib/settings.png" alt="Popup and settings" loading="lazy" /><figcaption>Simple, friendly settings</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="compare">
+    <div class="section-head"><h2>How it compares</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th class="us">Inkling</th><th>Typical paid assistant</th></tr></thead>
+        <tbody>
+          <tr><td>Spelling, grammar, punctuation</td><td class="us">✓</td><td>✓</td></tr>
+          <tr><td>Tone &amp; rewrites</td><td class="us">✓ with your AI key</td><td>Paid plan</td></tr>
+          <tr><td>Price</td><td class="us"><b>Free</b></td><td>Monthly subscription</td></tr>
+          <tr><td>Account required</td><td class="us"><b>No</b></td><td>Yes</td></tr>
+          <tr><td>Stores your text on its servers</td><td class="us"><b>No</b></td><td>Yes</td></tr>
+          <tr><td>Open source</td><td class="us"><b>MIT</b></td><td>No</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="install" id="install">
+    <div class="section-head">
+      <h2>Install in 60 seconds</h2>
+      <p>Not in the Chrome Web Store yet — so you load it yourself. Easy, and you can read every line first.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Download</h3>
+        <p>Get the ZIP and unzip it anywhere.</p>
+        <a class="btn primary small" href="https://github.com/STARMEXXX/inkling/archive/refs/heads/main.zip">Download ZIP</a>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Open extensions</h3>
+        <p>Paste this into the address bar and turn on <b>Developer mode</b>.</p>
+        <button class="copy" data-copy="chrome://extensions"><code>chrome://extensions</code><span>Copy</span></button>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Load unpacked</h3>
+        <p>Click <b>Load unpacked</b>, pick the <code>inkling-main</code> folder, then pin Inky 📌.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div id="ctaInky"></div>
+    <h2>Ready to write better?</h2>
+    <div class="ctas center">
+      <a class="btn primary" href="https://github.com/STARMEXXX/inkling/archive/refs/heads/main.zip">Download for Chrome</a>
+      <a class="btn" href="https://github.com/STARMEXXX/inkling" target="_blank" rel="noopener">★ Star on GitHub</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Inkling · MIT License</span>
+    <span>Demo checks use the free <a href="https://languagetool.org" target="_blank" rel="noopener">LanguageTool</a> API.</span>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
