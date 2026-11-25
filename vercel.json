@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "mkdir -p site/lib && cp src/content.js src/engines.js src/basic.js ui/inky.js icons/icon-128.png .github/assets/banner.png .github/assets/card.png .github/assets/panel.png .github/assets/rewrite.png .github/assets/settings.png site/lib/",
+  "buildCommand": "mkdir -p site/lib && cp src/content.js src/engines.js src/basic.js ui/inky.js icons/icon-128.png .github/assets/banner.png .github/assets/social-preview.png .github/assets/card.png .github/assets/panel.png .github/assets/rewrite.png .github/assets/settings.png site/lib/",
   "outputDirectory": "site",
   "framework": null,
   "cleanUrls": true,
