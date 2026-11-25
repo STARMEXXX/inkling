@@ -91,7 +91,7 @@ code { font: 0.9em ui-monospace, SFMono-Regular, Menlo, monospace; background: v
 }
 .pulse { width: 8px; height: 8px; border-radius: 50%; background: #12b76a; box-shadow: 0 0 0 0 rgba(18, 183, 106, 0.6); animation: pulse 2s infinite; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 9px rgba(18, 183, 106, 0) } 100% { box-shadow: 0 0 0 0 rgba(18, 183, 106, 0) } }
-h1 { font-size: clamp(44px, 7vw, 80px); line-height: 1.02; letter-spacing: -0.05em; margin: 20px 0 18px; }
+h1 { font-size: clamp(40px, 5.6vw, 64px); line-height: 1.02; letter-spacing: -0.05em; margin: 20px 0 18px; }
 .grad { background: linear-gradient(135deg, #a08eff, #5b3df5 60%, #ff7aa8); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead { font-size: 19px; color: var(--muted); max-width: 520px; margin: 0 0 28px; }
 .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
