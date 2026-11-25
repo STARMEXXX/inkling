@@ -15,9 +15,9 @@ export const DEFAULTS = {
 };
 
 export const ANTHROPIC_MODELS = [
-  { id: 'claude-opus-5-5', label: 'Claude Opus 5.5 — best quality' },
-  { id: 'claude-sonnet-5-5', label: 'Claude Sonnet 5.5 — balanced' },
-  { id: 'claude-haiku-5-5', label: 'Claude Haiku 5.5 — fastest, cheapest' },
+  { id: 'claude-opus-5-5', label: 'Claude Opus 5.5 (best quality)' },
+  { id: 'claude-sonnet-5-5', label: 'Claude Sonnet 5.5 (balanced)' },
+  { id: 'claude-haiku-5-5', label: 'Claude Haiku 5.5 (fastest and cheapest)' },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -42,7 +42,7 @@ export async function checkWithLanguageTool(text, language) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' },
     body,
   });
-  if (res.status === 429) throw new Error('Free checker is busy — slow down a little and try again.');
+  if (res.status === 429) throw new Error('The free checker is busy right now, so wait a few seconds and try again.');
   if (!res.ok) throw new Error(`LanguageTool error (${res.status})`);
   const data = await res.json();
   return (data.matches || []).map((m) => ({

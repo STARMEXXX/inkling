@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Inkling — Writing Assistant",
+  "name": "Inkling Writing Assistant",
   "short_name": "Inkling",
   "version": "1.0.0",
-  "description": "Open-source writing assistant. Fixes spelling, grammar and tone as you type. Free, private, no account.",
+  "description": "Checks your spelling and grammar as you type on almost any website, and can rewrite text with your own AI key.",
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",

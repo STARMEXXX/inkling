@@ -1,22 +1,22 @@
 <div align="center">
 
-<img src=".github/assets/banner.png" alt="Inkling — the open-source writing assistant" width="100%" />
+<img src=".github/assets/banner.png" alt="Inkling, an open-source writing assistant" width="100%" />
 
 <br />
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-6a4cff?style=flat-square)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/manifest-v3-8f7bff?style=flat-square&logo=googlechrome&logoColor=white)](manifest.json)
-[![Works in](https://img.shields.io/badge/works%20in-Chrome%20·%20Edge%20·%20Brave%20·%20Arc-1a1730?style=flat-square)](#-install-in-60-seconds)
+[![Works in](https://img.shields.io/badge/works%20in-Chrome%20·%20Edge%20·%20Brave%20·%20Arc-1a1730?style=flat-square)](#-install)
 [![No tracking](https://img.shields.io/badge/tracking-none-12b76a?style=flat-square)](#-privacy)
 [![Zero dependencies](https://img.shields.io/badge/dependencies-0-f59f0b?style=flat-square)](#-project-structure)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-f04461?style=flat-square)](#-contributing)
 
-**Fix spelling, grammar and tone as you type — on any website.**<br />
-Free. Private. No account. Bring your own AI for one-click rewrites.
+**A browser extension that checks your spelling and grammar as you type, on almost any website.**<br />
+It’s open source, works without an account, and can rewrite text with your own AI key.
 
 ### [🌐 Try the live demo →](https://inkling-writer.vercel.app)
 
-[Install](#-install-in-60-seconds) · [Features](#-features) · [How it works](#-how-it-works) · [Privacy](#-privacy) · [FAQ](#-faq)
+[Install](#-install) · [Features](#-features) · [How it works](#-how-it-works) · [Privacy](#-privacy) · [FAQ](#-faq)
 
 <br />
 
@@ -28,13 +28,13 @@ Free. Private. No account. Bring your own AI for one-click rewrites.
 
 ## ✨ Why Inkling?
 
-Writing assistants are great — until they want an account, a subscription and every word you type on their servers. Inkling is the lightweight alternative:
+Most writing assistants ask you to sign up, pay every month and send what you type to their servers. Inkling is a small open-source extension that does the main job without that:
 
 |                                  | **Inkling**                | Typical paid assistant |
 | :------------------------------- | :------------------------: | :--------------------: |
 | Spelling, grammar, punctuation   | ✅                          | ✅                      |
 | Rewrite: improve, shorten, tone  | ✅ with your own AI key     | ✅ paid plan            |
-| Price                            | **Free** (AI: pay per use, cents) | Monthly subscription |
+| Price                            | **Free** (AI costs a few cents, paid to the provider) | Monthly subscription |
 | Account required                 | **No**                     | Yes                    |
 | Has its own server storing your text | **No**                 | Yes                    |
 | Open source                      | **Yes, MIT**               | No                     |
@@ -49,7 +49,7 @@ Writing assistants are great — until they want an account, a subscription and 
 <td width="50%" valign="top">
 
 ### 🖍️ Underlines as you type
-Spelling, grammar, punctuation and clarity issues get a color-coded underline. Hover to see why, click to fix.
+Spelling, grammar, punctuation and wording problems get a colored underline. Hover over one to see the reason, and click the suggestion to apply it.
 
 <img src=".github/assets/card.png" alt="Suggestion card" />
 
@@ -57,7 +57,7 @@ Spelling, grammar, punctuation and clarity issues get a color-coded underline. H
 <td width="50%" valign="top">
 
 ### 💧 Meet Inky
-Inky lives in the corner of the field you're typing in. Click it for every suggestion at once — and **Fix all** in one click.
+Inky lives in the corner of the field you're typing in. Click it to see every suggestion, then use **Fix all** to apply them together.
 
 <img src=".github/assets/panel.png" alt="Inky panel with all suggestions" />
 
@@ -67,15 +67,15 @@ Inky lives in the corner of the field you're typing in. Click it for every sugge
 <td width="50%" valign="top">
 
 ### ✍️ AI rewrites
-Select any text and pick **Improve**, **Shorter**, **Formal**, **Friendly** or **Confident**. Powered by Claude or OpenAI with your own key.
+Select some text and pick **Improve**, **Shorter**, **Formal**, **Friendly** or **Confident**. Rewrites run on Claude or OpenAI with your own key.
 
 <img src=".github/assets/rewrite.png" alt="Selection toolbar with rewrite modes" />
 
 </td>
 <td width="50%" valign="top">
 
-### ⚙️ Simple settings
-Turn it off per site, pick your English variant, choose which checks you want and keep a personal dictionary.
+### ⚙️ Settings
+You can turn Inkling off on specific sites, choose your English variant and which checks to run, and keep a personal dictionary.
 
 <img src=".github/assets/settings.png" alt="Popup and settings page" />
 
@@ -83,13 +83,13 @@ Turn it off per site, pick your English variant, choose which checks you want an
 </tr>
 </table>
 
-**Also:** works in text areas, text inputs and rich-text editors like the ones in Gmail, Notion and LinkedIn · light and dark mode · undo-friendly edits (<kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>Z</kbd> works) · password fields are never read · <kbd>Esc</kbd> closes everything.
+**Also:** works in text areas, text inputs and rich-text editors like the ones in Gmail, Notion and LinkedIn · light and dark mode · fixes can be undone with <kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>Z</kbd> · password fields are never read · <kbd>Esc</kbd> closes any open card.
 
 <br />
 
-## 🚀 Install in 60 seconds
+## 🚀 Install
 
-Inkling isn't in the Chrome Web Store yet, so you load it yourself. It takes a minute and you can read every line of code first.
+Inkling isn't in the Chrome Web Store yet, so you load it from a folder. It takes about a minute.
 
 **1. Get the code**
 
@@ -111,7 +111,7 @@ Turn on **Developer mode** (top right), click **Load unpacked**, and select the 
 
 **3. Pin Inky** 📌
 
-Click the puzzle icon 🧩 in the toolbar and pin **Inkling**. A playground page opens so you can try it right away.
+Click the puzzle icon 🧩 in the toolbar and pin **Inkling**. A practice page opens where you can try it out.
 
 > [!TIP]
 > To update later, run `git pull` (or download the ZIP again) and press the ↻ reload button on Inkling's card in `chrome://extensions`.
@@ -120,7 +120,7 @@ Click the puzzle icon 🧩 in the toolbar and pin **Inkling**. A playground page
 
 ## 🤖 Unlock AI rewrites (optional)
 
-Spelling and grammar checks work out of the box, for free. For rewrites and the smarter AI checker, add your own API key:
+Spelling and grammar checks work without any setup and cost nothing. For rewrites and the AI checker, add your own API key:
 
 1. Get a key from [console.anthropic.com](https://console.anthropic.com/settings/keys) (Claude) or [platform.openai.com](https://platform.openai.com/api-keys) (OpenAI).
 2. Click Inky in the toolbar → **Settings** → paste the key → **Test**.
@@ -129,10 +129,10 @@ Spelling and grammar checks work out of the box, for free. For rewrites and the 
 | :---- | :------- |
 | `claude-opus-5-5` | Best quality (default) |
 | `claude-sonnet-5-5` | Balanced speed and quality |
-| `claude-haiku-5-5` | Fastest and cheapest — great for the AI checker |
+| `claude-haiku-5-5` | Fastest and cheapest, good for the AI checker |
 | Any OpenAI chat model | Type its name in Settings (default `gpt-5-mini`) |
 
-You pay the provider directly for what you use. A typical rewrite costs a fraction of a cent.
+You pay the provider directly for what you use, and a typical rewrite costs less than a cent.
 
 <br />
 
@@ -150,7 +150,7 @@ flowchart LR
     F -- "click a fix" --> A
 ```
 
-Inkling never changes the page's HTML to draw underlines. It mirrors the field's layout off-screen, measures where each word sits, and paints thin lines on its own transparent layer inside a [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM). Your page's styles can't break Inkling, and Inkling can't break your page.
+Inkling never changes the page's HTML to draw underlines. It mirrors the field's layout off-screen, measures where each word sits, and paints thin lines on its own transparent layer inside a [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM). The page's own styles don't affect Inkling, and Inkling never changes the page's markup.
 
 <details>
 <summary><b>What happens when you click a fix</b></summary>
@@ -196,7 +196,7 @@ The model returns plain JSON. Each issue quotes the exact text it wants to chang
 }
 ```
 
-Quotes it can't find are dropped. A hallucinated fix never lands in the wrong place.
+If a quote isn't found, the suggestion is dropped, so a made-up fix can't end up in the wrong place.
 
 </details>
 
@@ -204,7 +204,7 @@ Quotes it can't find are dropped. A hallucinated fix never lands in the wrong pl
 
 ## 🔒 Privacy
 
-Inkling has **no server, no analytics and no account**. Your text goes only to the service you pick:
+Inkling doesn't have a server of its own, doesn't collect analytics and doesn't need an account. Your text only goes to the service you choose:
 
 | What | Where it goes | When |
 | :--- | :------------ | :--- |
@@ -212,9 +212,9 @@ Inkling has **no server, no analytics and no account**. Your text goes only to t
 | Text you type or select | `api.anthropic.com` or `api.openai.com` | Only if you add a key and use AI |
 | Settings, dictionary | Your browser (`chrome.storage.sync`) | Always |
 | API keys | Your browser only (`chrome.storage.local`, never synced) | When you save one |
-| Password fields | Nowhere — never read | — |
+| Password fields | Never read | |
 
-Want zero network traffic on a site? Click Inky in the toolbar and switch that site off.
+To stop all network requests on a site, click Inky in the toolbar and turn that site off.
 
 <br />
 
@@ -249,7 +249,7 @@ inkling/
 └── site/                  # Landing page with a live demo (deployed on Vercel)
 ```
 
-No build step, no `node_modules`. Edit a file, hit reload on `chrome://extensions`, done.
+There's no build step and no `node_modules`. After you edit a file, reload the extension on `chrome://extensions` and refresh the page.
 
 <br />
 
@@ -299,11 +299,9 @@ git clone https://github.com/STARMEXXX/inkling.git
 
 ## 📄 License
 
-[MIT](LICENSE). Use it, fork it, ship it.
+Released under the [MIT License](LICENSE).
 
 <div align="center">
 <br />
-<img src=".github/assets/inky.svg" width="40" alt="" />
-<br />
-<sub>Made with ink and care.</sub>
+<img src=".github/assets/inky.svg" width="40" alt="Inky" />
 </div>

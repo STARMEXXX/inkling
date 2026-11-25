@@ -4,10 +4,9 @@ import { DEFAULTS, ANTHROPIC_MODELS } from '../src/engines.js';
 const $ = (id) => document.getElementById(id);
 
 const GREETINGS = [
-  'Hi! I’m Inky. Let’s write something great.',
-  'Ready when you are ✍️',
-  'Every word counts. I’ll check them all.',
-  'Psst — select text to rewrite it.',
+  'Hi, I’m Inky!',
+  'I’ll check what you type.',
+  'Tip: select text to rewrite it.',
 ];
 
 async function main() {
@@ -28,7 +27,7 @@ async function main() {
     const on = settings.enabled && (!host || siteOn);
     document.body.classList.toggle('off', !settings.enabled);
     $('mascot').innerHTML = inky(on ? 'happy' : 'sleep', 46);
-    $('greet').textContent = !settings.enabled ? 'Taking a nap. Flip the switch to wake me.' : GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
+    $('greet').textContent = !settings.enabled ? 'I’m switched off. Use the toggle to turn me on.' : GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
     $('master').checked = settings.enabled;
     $('host').textContent = host || 'This page';
     $('favicon').textContent = host ? host.replace(/^www\./, '')[0] : '·';
@@ -43,7 +42,7 @@ async function main() {
   const aiKey = settings.aiProvider === 'openai' ? keys.openaiKey : keys.anthropicKey;
   const aiName = settings.aiProvider === 'openai'
     ? settings.openaiModel
-    : (ANTHROPIC_MODELS.find((m) => m.id === settings.anthropicModel)?.label.split(' — ')[0] || settings.anthropicModel);
+    : (ANTHROPIC_MODELS.find((m) => m.id === settings.anthropicModel)?.label.split(' (')[0] || settings.anthropicModel);
   $('engCheck').textContent = settings.checkEngine === 'ai' && aiKey ? aiName : 'Free · LanguageTool';
   $('engAI').textContent = aiKey ? `${aiName} ✓` : 'Add a key →';
   $('aiDot').style.background = aiKey ? 'var(--ok)' : 'var(--muted)';

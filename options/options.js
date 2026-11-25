@@ -8,7 +8,7 @@ let keys;
 const PROVIDERS = {
   anthropic: {
     label: 'Claude API key', placeholder: 'sk-ant-…', keyName: 'anthropicKey',
-    help: 'Get one at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>. You pay Anthropic directly for what you use — usually cents.',
+    help: 'Get one at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>. You pay Anthropic directly for what you use, usually a few cents.',
   },
   openai: {
     label: 'OpenAI API key', placeholder: 'sk-…', keyName: 'openaiKey',
@@ -114,7 +114,7 @@ async function main() {
     const model = settings.aiProvider === 'openai' ? settings.openaiModel : settings.anthropicModel;
     const res = await chrome.runtime.sendMessage({ type: 'testKey', provider: settings.aiProvider, key, model });
     st.className = `status ${res.ok ? 'ok' : 'err'}`;
-    st.textContent = res.ok ? '✓ Connected — AI rewrites are ready.' : `✕ ${res.error}`;
+    st.textContent = res.ok ? '✓ The key works, so AI rewrites are turned on.' : `✕ ${res.error}`;
     $('mascot').innerHTML = inky(res.ok ? 'happy' : 'sad', 72);
   };
   drawProvider();

@@ -739,7 +739,7 @@
     const fixable = st.issues.filter((i) => i.replacements?.length).length;
     const head = n
       ? `<div><div class="t">${n} suggestion${n > 1 ? 's' : ''}</div><div class="s">Hover an underline or pick one below.</div></div>`
-      : `<div><div class="t">${st.checking ? 'Reading…' : 'Hi, I’m Inky!'}</div><div class="s">${st.checking ? 'Checking your writing' : 'Your writing looks clean.'}</div></div>`;
+      : `<div><div class="t">${st.checking ? 'Reading…' : 'Hi, I’m Inky!'}</div><div class="s">${st.checking ? 'Checking your writing' : 'I didn’t find any problems.'}</div></div>`;
     $panel.innerHTML = `
       <div class="p-head">${inky(st.checking ? 'think' : n ? 'alert' : 'happy', 40)}${head}
         <button class="x" data-a="close" aria-label="Close" style="align-self:flex-start">×</button></div>
@@ -750,7 +750,7 @@
           <span class="txt"><div class="ln"><span class="orig">${esc(i.original)}</span>${i.replacements?.length ? ` <span class="arrow">→</span> <span class="new">${esc(shown(i.replacements[0]))}</span>` : ''}</div>
           <div class="sub">${esc(i.title)}</div></span></button>`).join('')}</div>
       ${fixable > 1 ? `<div class="section"><button class="primary" data-a="fixall">Fix all ${fixable} suggestions</button></div>` : ''}`
-      : `<div class="empty">${st.checking ? '<div class="shimmer"></div><div class="shimmer" style="width:70%"></div>' : '<div class="big">Nothing to fix ✨</div>Keep writing — I’ll keep watching.'}</div>`}
+      : `<div class="empty">${st.checking ? '<div class="shimmer"></div><div class="shimmer" style="width:70%"></div>' : '<div class="big">Nothing to fix ✨</div>I’ll keep checking as you type.'}</div>`}
       <div class="section"><div class="label">Rewrite whole text with AI</div>
         ${aiReady ? `<div class="modes">${MODES.map(([m, l]) => `<button class="mode" data-a="mode" data-m="${m}">${l}</button>`).join('')}</div>`
         : `<button class="mode" data-a="opts">🔑 Add a Claude or OpenAI key to unlock rewrites</button>`}</div>
@@ -871,7 +871,7 @@
       if (a === 'replace') {
         const now = getText(st);
         if (now.slice(start, end) !== original) {
-          b.textContent = 'Text changed — select it again';
+          b.textContent = 'The text changed, so select it again';
           return;
         }
         replaceRange(st, start, end, out);
