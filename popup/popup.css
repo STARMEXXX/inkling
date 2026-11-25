@@ -1,0 +1,42 @@
+body { width: 330px; padding: 0 0 12px; }
+
+.hero {
+  display: flex; align-items: center; gap: 12px; padding: 18px 16px 16px;
+  background:
+    radial-gradient(120px 80px at 18% 30%, rgba(143, 123, 255, .28), transparent 70%),
+    radial-gradient(160px 90px at 90% 0%, rgba(255, 143, 177, .18), transparent 70%);
+}
+.hello { flex: 1; }
+.brand { font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
+.greet { color: var(--muted); font-size: 13px; }
+
+.site {
+  display: flex; align-items: center; gap: 10px; margin: 0 12px; padding: 12px;
+  border-radius: var(--radius); background: var(--bg2); border: 1px solid var(--line);
+}
+.favicon {
+  width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; flex: none;
+  background: var(--bg3); font-weight: 700; text-transform: uppercase; color: var(--accent);
+}
+.site-text { flex: 1; min-width: 0; }
+.host { font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sub { color: var(--muted); font-size: 12px; }
+
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 12px; }
+.tile { padding: 12px; border-radius: var(--radius); background: var(--bg2); border: 1px solid var(--line); }
+.num {
+  font-size: 24px; font-weight: 800; letter-spacing: -.03em;
+  background: linear-gradient(135deg, var(--accent2), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lbl { color: var(--muted); font-size: 12px; }
+
+.engines { margin: 0 12px; padding: 4px 12px; border-radius: var(--radius); border: 1px solid var(--line); }
+.eng { display: flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 13px; }
+.eng + .eng { border-top: 1px solid var(--line); }
+.eng-name { font-weight: 600; }
+.eng-val { margin-left: auto; color: var(--muted); }
+
+footer { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 12px 8px; }
+.credit { text-align: center; color: var(--muted); font-size: 12px; }
+
+body.off .site, body.off .stats, body.off .engines { opacity: .45; filter: grayscale(.6); }

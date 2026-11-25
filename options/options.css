@@ -1,0 +1,78 @@
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(600px 300px at 10% -5%, rgba(143, 123, 255, .18), transparent 70%),
+    radial-gradient(500px 260px at 100% 0%, rgba(255, 143, 177, .12), transparent 70%),
+    var(--bg);
+}
+main { max-width: 680px; margin: 0 auto; padding: 40px 20px 60px; }
+
+.hero { display: flex; gap: 18px; align-items: center; margin-bottom: 24px; }
+h1 { margin: 0; font-size: 30px; letter-spacing: -.03em; }
+.hero p { margin: 4px 0 0; color: var(--muted); }
+h2 { margin: 0 0 12px; font-size: 16px; letter-spacing: -.01em; }
+
+.card {
+  background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 20px;
+  margin-bottom: 14px; box-shadow: var(--shadow);
+}
+.hint { color: var(--muted); font-size: 13px; margin: -6px 0 12px; }
+.field .hint { margin: 6px 0 0; }
+
+.choices { display: grid; gap: 10px; }
+.choice {
+  display: flex; gap: 12px; padding: 14px; border-radius: 12px; border: 1.5px solid var(--line); cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.choice:hover { background: var(--bg2); }
+.choice:has(input:checked) { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.choice input { accent-color: var(--accent); margin-top: 3px; }
+.c-title { font-weight: 650; }
+.c-sub { color: var(--muted); font-size: 13px; }
+.tag { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 20px; background: var(--bg3); color: var(--muted); margin-left: 4px; }
+.tag.ai { background: linear-gradient(135deg, var(--accent2), var(--accent)); color: #fff; }
+
+.seg { display: inline-flex; padding: 4px; border-radius: 12px; background: var(--bg2); margin-bottom: 14px; }
+.seg button { border: 0; background: none; padding: 7px 18px; border-radius: 9px; font-weight: 600; cursor: pointer; color: var(--muted); }
+.seg button[aria-selected="true"] { background: var(--bg); color: var(--fg); box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+
+.field { margin-top: 12px; }
+.field label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; }
+input[type="text"], input[type="password"], select {
+  width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg2);
+  outline: none; transition: border-color .15s, box-shadow .15s;
+}
+input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent); }
+.key-row, .add-row { display: flex; gap: 8px; }
+.key-row input, .add-row input { flex: 1; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.add-row input { font-family: inherit; }
+.btn.icon { padding: 9px 11px; }
+.status { font-size: 13px; margin-top: 8px; min-height: 18px; }
+.status.ok { color: var(--ok); }
+.status.err { color: var(--spelling); }
+
+.toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tog { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 12px; background: var(--bg2); cursor: pointer; }
+.tog > span:nth-child(2) { flex: 1; font-weight: 550; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 6px 5px 11px; border-radius: 20px; background: var(--bg2); border: 1px solid var(--line); font-size: 13px; }
+.chip button { border: 0; background: var(--bg3); width: 20px; height: 20px; border-radius: 50%; cursor: pointer; line-height: 1; color: var(--muted); }
+.chip button:hover { color: var(--fg); }
+.empty { color: var(--muted); font-size: 13px; }
+
+.privacy ul { margin: 0; padding-left: 18px; color: var(--muted); }
+.privacy li { margin: 4px 0; }
+.foot { text-align: center; color: var(--muted); font-size: 13px; margin-top: 24px; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
+  background: var(--fg); color: var(--bg); padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 13px;
+  transition: opacity .2s, transform .2s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 520px) {
+  .toggles { grid-template-columns: 1fr; }
+  .hero { flex-direction: column; align-items: flex-start; }
+}

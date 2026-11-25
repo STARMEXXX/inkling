@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inkling Settings</title>
+  <link rel="stylesheet" href="../ui/base.css" />
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div class="inky-float" id="mascot"></div>
+      <div>
+        <h1>Settings</h1>
+        <p>Everything saves automatically. Your keys never leave this device except to talk to the provider you choose.</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>How should I check your writing?</h2>
+      <div class="choices">
+        <label class="choice">
+          <input type="radio" name="checkEngine" value="languagetool" />
+          <div>
+            <div class="c-title">Free checker <span class="tag">default</span></div>
+            <div class="c-sub">Spelling, grammar and punctuation by LanguageTool. No key, no account. Text is sent to languagetool.org to be checked.</div>
+          </div>
+        </label>
+        <label class="choice">
+          <input type="radio" name="checkEngine" value="ai" />
+          <div>
+            <div class="c-title">AI checker <span class="tag ai">smarter</span></div>
+            <div class="c-sub">Context-aware suggestions from Claude or OpenAI using your own API key. Catches awkward phrasing, too.</div>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>AI provider</h2>
+      <p class="hint">Needed for rewrites (Improve, Shorter, Formal, Friendly, Confident) and for the AI checker.</p>
+      <div class="seg" role="tablist">
+        <button data-provider="anthropic" role="tab">Claude</button>
+        <button data-provider="openai" role="tab">OpenAI</button>
+      </div>
+
+      <div class="field">
+        <label for="apiKey" id="keyLabel">Claude API key</label>
+        <div class="key-row">
+          <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-…" />
+          <button class="btn icon" id="reveal" title="Show or hide key">👁</button>
+          <button class="btn" id="test">Test</button>
+        </div>
+        <div class="status" id="status"></div>
+        <div class="hint" id="keyHelp"></div>
+      </div>
+
+      <div class="field" id="anthropicModelField">
+        <label for="anthropicModel">Model</label>
+        <select id="anthropicModel"></select>
+      </div>
+      <div class="field" id="openaiModelField" hidden>
+        <label for="openaiModel">Model</label>
+        <input id="openaiModel" type="text" spellcheck="false" />
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>What to check</h2>
+      <div class="toggles">
+        <label class="tog"><span class="dot" style="background:var(--spelling)"></span><span>Spelling</span><span class="switch"><input type="checkbox" data-cat="spelling" /><span></span></span></label>
+        <label class="tog"><span class="dot" style="background:var(--grammar)"></span><span>Grammar</span><span class="switch"><input type="checkbox" data-cat="grammar" /><span></span></span></label>
+        <label class="tog"><span class="dot" style="background:var(--punctuation)"></span><span>Punctuation</span><span class="switch"><input type="checkbox" data-cat="punctuation" /><span></span></span></label>
+        <label class="tog"><span class="dot" style="background:var(--style)"></span><span>Clarity &amp; style</span><span class="switch"><input type="checkbox" data-cat="style" /><span></span></span></label>
+      </div>
+      <div class="field">
+        <label for="language">English variant</label>
+        <select id="language">
+          <option value="en-US">🇺🇸 American English</option>
+          <option value="en-GB">🇬🇧 British English</option>
+          <option value="en-CA">🇨🇦 Canadian English</option>
+          <option value="en-AU">🇦🇺 Australian English</option>
+          <option value="en-NZ">🇳🇿 New Zealand English</option>
+          <option value="en-ZA">🇿🇦 South African English</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Personal dictionary</h2>
+      <p class="hint">Words Inky should never flag — names, brands, slang.</p>
+      <div class="add-row">
+        <input id="newWord" type="text" placeholder="Add a word…" spellcheck="false" />
+        <button class="btn" id="addWord">Add</button>
+      </div>
+      <div class="chips" id="dict"></div>
+    </section>
+
+    <section class="card">
+      <h2>Paused sites</h2>
+      <div class="chips" id="sites"></div>
+    </section>
+
+    <section class="card privacy">
+      <h2>🔒 Privacy</h2>
+      <ul>
+        <li>No account, no analytics, no tracking. Inkling has no server.</li>
+        <li>Text goes only to the checker you pick: <b>languagetool.org</b>, <b>api.anthropic.com</b> or <b>api.openai.com</b>.</li>
+        <li>API keys are stored locally in your browser and are never synced.</li>
+        <li>Password fields are never read.</li>
+      </ul>
+    </section>
+
+    <footer class="foot">Inkling <span id="ver"></span> · <a href="https://github.com/STARMEXXX/inkling" target="_blank" rel="noopener">GitHub</a> · MIT License</footer>
+  </main>
+  <div class="toast" id="toast">Saved ✓</div>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Inkling — Writing Assistant",
+  "short_name": "Inkling",
+  "version": "1.0.0",
+  "description": "Open-source writing assistant. Fixes spelling, grammar and tone as you type. Free, private, no account.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Inkling",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://api.languagetool.org/*",
+    "https://api.anthropic.com/*",
+    "https://api.openai.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": ["https://docs.google.com/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ]
+}

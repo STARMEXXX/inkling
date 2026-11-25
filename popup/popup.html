@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Inkling</title>
+  <link rel="stylesheet" href="../ui/base.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="inky-float" id="mascot"></div>
+    <div class="hello">
+      <div class="brand">Inkling</div>
+      <div class="greet" id="greet">Hi! I’m Inky.</div>
+    </div>
+    <label class="switch" title="Turn Inkling on or off everywhere">
+      <input type="checkbox" id="master" /><span></span>
+    </label>
+  </header>
+
+  <section class="site">
+    <div class="favicon" id="favicon">?</div>
+    <div class="site-text">
+      <div class="host" id="host">This page</div>
+      <div class="sub" id="siteState">Checking as you type</div>
+    </div>
+    <label class="switch" title="Check writing on this site">
+      <input type="checkbox" id="siteToggle" /><span></span>
+    </label>
+  </section>
+
+  <section class="stats">
+    <div class="tile"><div class="num" id="today">0</div><div class="lbl">fixed today</div></div>
+    <div class="tile"><div class="num" id="total">0</div><div class="lbl">fixed all time</div></div>
+  </section>
+
+  <section class="engines">
+    <div class="eng">
+      <span class="dot" style="background:var(--ok)"></span>
+      <span class="eng-name">Checker</span>
+      <span class="eng-val" id="engCheck">Free · LanguageTool</span>
+    </div>
+    <div class="eng">
+      <span class="dot" id="aiDot"></span>
+      <span class="eng-name">AI rewrites</span>
+      <span class="eng-val" id="engAI">Not set up</span>
+    </div>
+  </section>
+
+  <footer>
+    <button class="btn" id="playground">✍️ Try it</button>
+    <button class="btn primary" id="settings">Settings</button>
+  </footer>
+  <div class="credit">Open source · <a href="https://github.com/STARMEXXX/inkling" target="_blank" rel="noopener">GitHub</a></div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

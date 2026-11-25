@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inkling Playground</title>
+  <link rel="stylesheet" href="../ui/base.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(700px 320px at 0% -10%, rgba(143, 123, 255, .2), transparent 70%),
+        radial-gradient(600px 300px at 100% 0%, rgba(255, 143, 177, .14), transparent 70%),
+        var(--bg);
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+    .hero { text-align: center; margin-bottom: 28px; }
+    .hero h1 { font-size: 38px; letter-spacing: -.035em; margin: 10px 0 6px; }
+    .hero p { color: var(--muted); margin: 0; font-size: 16px; }
+    .welcome {
+      display: none; gap: 14px; align-items: center; padding: 14px 16px; border-radius: 16px; margin-bottom: 20px;
+      background: linear-gradient(135deg, rgba(143,123,255,.16), rgba(106,76,255,.08)); border: 1px solid rgba(106,76,255,.25);
+    }
+    .welcome.show { display: flex; }
+    .welcome b { display: block; }
+    .welcome span { color: var(--muted); font-size: 13px; }
+    .box { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 18px; margin-bottom: 16px; box-shadow: var(--shadow); }
+    .box h2 { margin: 0 0 4px; font-size: 15px; }
+    .box .s { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+    textarea, input, .editor {
+      width: 100%; border: 1px solid var(--line); background: var(--bg2); border-radius: 12px; padding: 14px 16px;
+      font-size: 15.5px; line-height: 1.65; outline: none; transition: border-color .15s, box-shadow .15s;
+    }
+    textarea { min-height: 170px; resize: vertical; }
+    .editor { min-height: 120px; }
+    textarea:focus, input:focus, .editor:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(106,76,255,.18); }
+    .tips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 24px; }
+    .tip { padding: 14px; border-radius: 14px; background: var(--bg2); font-size: 13px; color: var(--muted); }
+    .tip b { display: block; color: var(--fg); margin-bottom: 2px; font-size: 14px; }
+    .legend { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 18px; color: var(--muted); font-size: 13px; }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    @media (max-width: 640px) { .tips { grid-template-columns: 1fr; } .hero h1 { font-size: 30px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="welcome" id="welcome">
+      <div style="font-size:26px">🎉</div>
+      <div><b>Inkling is installed!</b><span>Pin it: click the puzzle icon 🧩 in the toolbar, then the pin 📌 next to Inkling.</span></div>
+    </div>
+
+    <div class="hero">
+      <div class="inky-float" id="mascot"></div>
+      <h1>Playground</h1>
+      <p>Click into any box below. Inky will underline what needs fixing.</p>
+      <div class="legend">
+        <span><i class="dot" style="background:var(--spelling)"></i>Spelling</span>
+        <span><i class="dot" style="background:var(--grammar)"></i>Grammar</span>
+        <span><i class="dot" style="background:var(--punctuation)"></i>Punctuation</span>
+        <span><i class="dot" style="background:var(--style)"></i>Clarity</span>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2>📝 A text area</h2>
+      <div class="s">Like a comment box or a support form.</div>
+      <textarea id="ta" spellcheck="false">Their going to the park tomorow, but I dont think its going to rain. Me and him has been friends since we was kids.
+
+We should of left earlier, because the traffic were terrible. Its a very unique oportunity and i could care less about the wether.</textarea>
+    </div>
+
+    <div class="box">
+      <h2>✉️ A rich-text editor</h2>
+      <div class="s">Like Gmail, Notion or LinkedIn.</div>
+      <div class="editor" contenteditable="true" spellcheck="false"><p>Hi Sarah,</p><p>I wanted to follow up on are meeting yesterday. Could you send me the the slides when you get a chance. I recieved your email but the attachment were missing.</p><p>Thanks alot!</p></div>
+    </div>
+
+    <div class="box">
+      <h2>🔎 A single-line input</h2>
+      <input type="text" spellcheck="false" value="This sentense have two mistake." />
+    </div>
+
+    <div class="tips">
+      <div class="tip"><b>Hover</b>an underline to see the fix. Click it to apply.</div>
+      <div class="tip"><b>Click Inky</b>in the corner of a box to fix everything at once.</div>
+      <div class="tip"><b>Select text</b>to rewrite it with AI: improve, shorten, formal, friendly.</div>
+    </div>
+  </main>
+  <script type="module" src="playground.js"></script>
+  <script src="../src/content.js"></script>
+</body>
+</html>
